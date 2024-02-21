@@ -1,16 +1,29 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
 
 const productsRoute = require("./routes/products");
-const ordersRoute = require("./routes/orders")
+const ordersRoute = require("./routes/orders");
+
+app.use(morgan("dev"));
 
 app.use("/products", productsRoute);
-app.use("/orders", ordersRoute)
+app.use("/orders", ordersRoute);
 
-app.use("/test", (req, res, next) => {
-  res.status(200).send({
-    mesage: "OK",
-  });
+// ROUTE DIDN'T FOUND
+app.use((req, res, next) => {
+  const err = new Error("Not Found.");
+  err.status = 404;
+  next(err);
 });
+
+app.use((error, req, res, next) => {
+    res.status(error.status || 500)
+    return res.send({
+        error:{
+            message: error.message
+        }
+    })
+})
 
 module.exports = app;

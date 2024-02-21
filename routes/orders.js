@@ -4,14 +4,14 @@ const router = express.Router();
 // GET ALL ORDERS
 router.get("/", (req, res, next) => {
   res.status(200).send({
-    mesage: "GET Orders",
+    message: "GET Orders",
   });
 });
 
 // INSERT A ORDER
 router.post("/", (req, res, next) => {
   res.status(201).send({
-    mesage: "Order Created",
+    message: "Order Created",
   });
 });
 
@@ -20,7 +20,7 @@ router.get("/:order_id", (req, res, next) => {
   const id = req.params.order_id;
 
   res.status(200).send({
-    mesage: "GET specific order data",
+    message: "GET specific order data",
     order_id: id,
   });
 });
@@ -28,14 +28,14 @@ router.get("/:order_id", (req, res, next) => {
 // UPDATE A ORDER
 router.patch("/", (req, res, next) => {
   res.status(200).send({
-    mesage: "Order Updated",
+    message: "Order Updated",
   });
 });
 
 // DELETE A ORDER
 router.delete("/", (req, res, next) => {
   res.status(200).send({
-    mesage: "Order Deleted",
+    message: "Order Deleted",
   });
 });
 

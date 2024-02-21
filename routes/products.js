@@ -4,14 +4,14 @@ const router = express.Router();
 // GET ALL PRODUCTS
 router.get("/", (req, res, next) => {
   res.status(200).send({
-    mesage: "GET Products",
+    message: "GET Products",
   });
 });
 
 // INSERT A PRODUCT
 router.post("/", (req, res, next) => {
   res.status(201).send({
-    mesage: "Product Created",
+    message: "Product Created",
   });
 });
 
@@ -21,12 +21,12 @@ router.get("/:product_id", (req, res, next) => {
 
   if (id === "special") {
     res.status(200).send({
-      mesage: "You find a Special ID",
+      message: "You find a Special ID",
       id: id,
     });
   } else {
     res.status(200).send({
-      mesage: "You find a Normal ID",
+      message: "You find a Normal ID",
       product_id: id,
     });
   }
@@ -35,14 +35,14 @@ router.get("/:product_id", (req, res, next) => {
 // UPDATE A PRODUCT
 router.patch("/", (req, res, next) => {
   res.status(200).send({
-    mesage: "Product Updated",
+    message: "Product Updated",
   });
 });
 
 // DELETE A PRODUCT
 router.delete("/", (req, res, next) => {
   res.status(200).send({
-    mesage: "Product Deleted",
+    message: "Product Deleted",
   });
 });
 
