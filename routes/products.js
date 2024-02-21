@@ -10,8 +10,15 @@ router.get("/", (req, res, next) => {
 
 // INSERT A PRODUCT
 router.post("/", (req, res, next) => {
+
+    const product = {
+        name: req.body.name,
+        price: req.body.price
+    };
+
   res.status(201).send({
     message: "Product Created",
+    productCreated: product
   });
 });
 
